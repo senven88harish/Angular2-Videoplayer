@@ -639,7 +639,7 @@ module.exports = "<div>\n    <iframe width=\"100%\" height=\"300\" [src]=\"video
 /***/ 531:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"form-group\">\n    <input type=\"input\" class=\"form-control\" name=\"search\" (ngModelChange)=\"OnSearchVideo($event)\"  [ngModel]=\"searchFilter\" required placeholder=\"title\">\n</div>\n<ul class=\"nav nav-pills nav-stacked\">\n    <li (click)=\"onSelect(video)\" *ngFor=\"let video of videos\"><a>{{video.title}}</a></li>\n</ul>"
+module.exports = "<div class=\"form-group\">\n    <input type=\"input\" class=\"form-control\" name=\"search\" (ngModelChange)=\"OnSearchVideo($event)\"  [ngModel]=\"searchFilter\" required placeholder=\"search\">\n</div>\n<ul class=\"nav nav-pills nav-stacked\">\n    <li (click)=\"onSelect(video)\" *ngFor=\"let video of videos\"><a>{{video.title}}</a></li>\n</ul>"
 
 /***/ }),
 
