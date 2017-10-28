@@ -26,6 +26,6 @@
 	</div>
 	<div class="col-sm-3">
 		<button style="margin-bottom:2px;" type="button" (click)="newVideo()" class="btn btn-success btn-block">+ New Video</button>
-		<video-list [videos]="videos" (SelectVideo)="onSelectVideo($event)"></video-list>
+		<video-list [videos]="videos" (SearchedVideo)="OnSearchVideo($event)" (SelectVideo)="onSelectVideo($event)"></video-list>
 	</div>
 </div>

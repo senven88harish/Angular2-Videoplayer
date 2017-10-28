@@ -9,6 +9,7 @@ import { Video } from "../video";
 })
 export class VideoCenterComponent implements OnInit {
   selectedVideo: Video;
+  SearchedVideo: Video;
   private hidenewVideo: boolean = true;
   videos: Array<Video>;
   constructor(private _videoService: VideoService) { }
@@ -16,6 +17,13 @@ export class VideoCenterComponent implements OnInit {
   ngOnInit() {
     this._videoService.getVideos()
       .subscribe(resVideoData => this.videos = resVideoData);
+  }
+
+  OnSearchVideo(title: any){
+    this.SearchedVideo = title;
+    console.log(this.SearchedVideo);
+    this._videoService.getSearchVideos(title)
+        .subscribe(resVideoData => this.videos = resVideoData);
   }
 
   onSelectVideo(video: any) {

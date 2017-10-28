@@ -6,10 +6,11 @@ import { Video } from '../video';
   templateUrl: './video-list.component.html',
   styleUrls: ['./video-list.component.css'],
   inputs: ['videos'],
-  outputs: ['SelectVideo']
+  outputs: ['SelectVideo', 'SearchedVideo']
 })
 export class VideoListComponent implements OnInit {
   public SelectVideo = new EventEmitter();
+  public SearchedVideo = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,10 @@ export class VideoListComponent implements OnInit {
 
   onSelect(vid: Video) {
     this.SelectVideo.emit(vid);
+  }
+
+  OnSearchVideo(keyword){
+    this.SearchedVideo.emit(keyword);
   }
 
 }

@@ -1,17 +1,27 @@
 import { Video } from './video';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import {URLSearchParams, QueryEncoder} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class VideoService {
 
+  private _getSearchUrl = "/api/searchvideos";
   private _getUrl = "/api/videos";
   private _postUrl = "/api/video";
   private _putUrl = "/api/video/";
   private _deleteUrl = "/api/video/";
 
   constructor(private _http: Http) { }
+
+  getSearchVideos(keyword: any): Observable<any>{
+    let params = new URLSearchParams();
+    params.set('search', keyword);
+    return this._http.get(this._getSearchUrl, {search:params})
+      .map((response: Response) => response.json());
+  }
 
   getVideos() {
     return this._http.get(this._getUrl)

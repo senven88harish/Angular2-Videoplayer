@@ -14,6 +14,21 @@ mongoose.connect(db, function(err){
     }
 });
 
+router.get('/searchvideos', function(req, res){
+
+    Video.find({title: { $regex: req.query.search}})
+        .exec(function(err, videos){
+            if (err){
+                console.log("Error retrieving videos");
+            }else {
+                console.log(videos)
+                res.json(videos);
+            }
+        });
+});
+
+
+
 router.get('/videos', function(req, res){
     console.log('Get request for all videos');
     Video.find({})
